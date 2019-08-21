@@ -1,0 +1,48 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.17.3/libexec/bin/yarn.js add eslint -D
+
+PATH: 
+  /usr/local/Cellar/python/3.7.4/bin:/Users/markpoepping/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/X11/bin
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  10.16.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/markpoepping/Sites/ac-samlHelper/package.json: Unexpected token } in JSON at position 292
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.17.3/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.17.3/libexec/lib/cli.js:304:30)
+      at /usr/local/Cellar/yarn/1.17.3/libexec/lib/cli.js:315:13
+
+npm manifest: 
+  {
+    "name": "ac-samlhelper",
+    "author": "Mark Poepping (https://www.mmpro.de)",
+    "license": "MIT",
+    "repository": "mmpro/ac-samlhelper",
+    "version": "0.0.1",
+    "dependencies": {
+      "json-beautify": "^1.1.0",
+      "lodash": "^4.17.11",
+      "minimist": "^1.2.0",
+      "xml2js": "^0.4.19",
+    },
+    "devDependencies": {
+    },
+    "engines": {
+      "node": ">=8.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
