@@ -31,6 +31,7 @@ const xml2js = require('xml2js');
  const convertSAMLResponse = (params, cb) => {
   const file = _.get(params, 'file')
   if (!file) return cb({ message: 'fileIsRequired' })
+  const path = _.get(params, 'path', 'samlp:Response.Assertion[0].AttributeStatement[0]')
   fs.readFile(file, (err, result) => {
     if (err) return cb(err)
     const decoded = Buffer.from(result.toString(), 'base64').toString('utf-8')
@@ -38,8 +39,13 @@ const xml2js = require('xml2js');
     console.log('...', typeof decoded)
     var parseString = require('xml2js').parseString;
     parseString(decoded, function (err, result) {
+      console.log(_.pad('RESPONSE', 80, '-'))
       console.log(err, result);
-  });
+      console.log(_.pad('PATH: ' + path, 80, '-'))
+      console.log(beautify(_.get(result, path), null, 2, 100));
+
+
+    });
   })
  }
 
@@ -61,7 +67,7 @@ const convertFromXML = (params, cb) => {
   })
  }
  if (_.get(argv, 'fromSAML')) {
-  convertSAMLResponse({ file: _.get(argv, 'file') }, (err, result) => {
+  convertSAMLResponse({ file: _.get(argv, 'file'), path: _.get(argv, 'path') }, (err, result) => {
     if (err) throw err
     console.log(beautify(result, null, 2, 100));
 
