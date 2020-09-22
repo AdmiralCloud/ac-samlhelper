@@ -1,7 +1,20 @@
 # AC SAML Helper
 Takes an valid SAML Response XML (or JSON) and converts into a payload necessary for the actual HTTP call
 
-## Usage
+## Usage for analysing
+Take the original SAML Response and store it in a file under folder payloads (e.g. samlResponse.txt).
+
+Then call 
+```
+node index.js --fromSAML --file payloads/samlResponse.txt 
+```
+
+You will see the decoded original message (XML), the converted JSON object and the Array used for our mapping.
+
+You can use option *--path* to set a custom path for the basePath (used in mapping). It defaults to *samlp:Response.Assertion[0].AttributeStatement[0]*.
+
+
+## Usage with our ac-auth-server
 It is recommended to use an XML file.
 
 ```
